@@ -43,16 +43,16 @@ function FileGrid({
   emptyMessage?: React.ReactNode;
 }) {
 
-  const uploadedDate = new Date(file.uploaded);
-    uploadedDate.setFullYear(uploadedDate.getFullYear() - 1); // Subtract one year
-
-
-  
   return files.length === 0 ? (
     emptyMessage
   ) : (
     <Grid container sx={{ paddingBottom: "48px" }}>
       {files.map((file) => (
+      
+      const uploadedDate = new Date(file.uploaded);
+      uploadedDate.setFullYear(uploadedDate.getFullYear() - 1); 
+
+  
         <Grid item key={file.key} xs={12} sm={6} md={4} lg={3} xl={2}>
           <ListItemButton
             selected={multiSelected?.includes(file.key)}
