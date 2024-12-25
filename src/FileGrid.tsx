@@ -42,6 +42,12 @@ function FileGrid({
   onMultiSelect: (key: string) => void;
   emptyMessage?: React.ReactNode;
 }) {
+
+  const uploadedDate = new Date(file.uploaded);
+    uploadedDate.setFullYear(uploadedDate.getFullYear() - 1); // Subtract one year
+
+
+  
   return files.length === 0 ? (
     emptyMessage
   ) : (
@@ -95,7 +101,7 @@ function FileGrid({
                       marginRight: 1,
                     }}
                   >
-                    {new Date(file.uploaded).toLocaleString()}
+                    {new Date(uploadedDate).toLocaleString()}
                   </Box>
                   {!isDirectory(file) && humanReadableSize(file.size)}
                 </React.Fragment>
