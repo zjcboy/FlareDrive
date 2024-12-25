@@ -47,11 +47,11 @@ function FileGrid({
     emptyMessage
   ) : (
     <Grid container sx={{ paddingBottom: "48px" }}>
-      {files.map((file) => (
+      {files.map((file) => {
       
       const uploadedDate = new Date(file.uploaded);
       uploadedDate.setFullYear(uploadedDate.getFullYear() - 1); 
-
+        return(
   
         <Grid item key={file.key} xs={12} sm={6} md={4} lg={3} xl={2}>
           <ListItemButton
@@ -108,8 +108,8 @@ function FileGrid({
               }
             />
           </ListItemButton>
-        </Grid>
-      ))}
+        </Grid>)
+    })}
     </Grid>
   );
 }
